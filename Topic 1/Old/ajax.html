@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <title>Topic 1 - Etapa II: AJAX - Javascript Intro and jQuery</title>
+    <!--
+        This document was successfully checked as HTML5!
+        Result:  Passed, 2 warning(s)
+
+        Using experimental feature: HTML5 Conformance Checker.
+        Using Direct Input mode: UTF-8 character encoding assumed    
+    -->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Lorem ipsum.</h1>
+        <h2>Pablo Demian Rebolini</h2>
+        <a href="mailto:rebolini.pablo@gmail.com">[Contacto]</a>
+      </header>
+      
+      <section class="pull-right tweets-list"></section>
+      <div class="clearfix">&nbsp;</div>
+
+      <footer>
+        Lorem ipsum. All Right Reserved
+      </footer>   
+    </div>
+
+    <!-- jQuery Lastest -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      // from_user, text, created_at, profile_image_url
+      $(document).ready(function () {
+        var url = 'http://tweetproxy.ap01.aws.af.cm/search',
+          tpl = $('#template').html(),
+          parsed;
+
+        $.ajax({
+          type: "GET",
+          url: url,
+          data: {'q': 'html5'},
+          dataType: 'jsonp'
+        })
+        
+        .done(function (data) {
+          if (!data.hasOwnProperty('statuses')) {
+            throw new Error ('Estructura de Tweets erronea !');
+          }
+
+          // Punto 11
+          //console.log(data);
+
+          $.each(data.statuses, function (i, e) {
+            parsed = tpl.replace('{profile_image_url}', e.user.profile_image_url)
+                        .replace('{from_user}', e.user.name)
+                        .replace('{created_at}', e.created_at)
+                        .replace('{text}', e.text);
+
+            $('.tweets-list').append(parsed);
+          });
+
+        })
+        
+        .fail(function () {
+          $('.tweets-list').addClass('error-text')
+                           .html('Se ha producido un error!');
+        });
+      });
+    </script>
+
+    <div id="template" class="hidden">
+      <article>
+        <img src="{profile_image_url}" alt="" class="profile">
+        <span class="author">{from_user}</span>
+        <span class="created">{created_at}</span>
+        <p class="text">
+          {text}
+        </p>
+      </article> 
+    </div>
+
+
+  </body>
+</html>

@@ -1,0 +1,106 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="assets/css/estilos.css">
+		<title>Topic 1 - Javascript Intro and jQuery</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<h1>Lorem ipsum.</h1>
+			</header>
+
+			<section class="top-section">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, repudiandae tempore reprehenderit facere optio iure incidunt necessitatibus nemo iste aperiam. Reprehenderit, optio nobis illum quos mollitia velit perspiciatis libero corporis.
+			</section>
+
+
+			<section class="hidden">
+				Hello World!
+				<textarea cols="15" rows="1" class="alias" placeholder="Name..."></textarea>
+			</section>
+			
+			<section>
+				<button class="js-welcome">
+					Dar la bienvenida
+				</button>
+			</section>
+
+			<hr />
+			<section>
+				<button>
+					<a href="ajax.html">Continuar con AJAX >></a>
+				</button>
+			</section>
+
+
+			<footer>
+				Lorem ipsum. All Right Reserved
+			</footer>		
+		</div>
+
+		<!-- jQuery -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				var name
+				,	url  = 'http://bootcamp.aws.af.cm/welcome/'
+				,	$ts  = $('.top-section');
+
+				/** Textarea Fade-in & Focus **/
+				$('.hidden').fadeIn(3000, function () {
+					$('.alias').focus();
+				});	
+
+
+				/** Boton de bienvenida **/
+				$('.js-welcome').on('click', function (e) {
+
+
+					// Nombre ingresado
+					// en el textarea...
+					name = $('.alias').val();
+
+					// Pequeña validacion
+					if(name.length === 0) {
+						$ts.addClass('error-text')
+							 .html('Name cannot be empty');
+
+						return;
+					}
+
+					// Desactivamos el boton
+					this.disabled = true;
+
+					// Solicitud
+					$.get(url + name, function (data){
+
+						// Quitamos la clase error-text si estuviera
+						// e inyectamos el response...						
+						$ts.removeClass('error-text')
+							 .html(data.response);
+						
+						// Resaltamos el nombre
+						highlight(name);
+
+					}, 'json').fail(function () {
+						// Si falla colocamos un mensaje de error...
+						$ts.addClass('error-text')
+						   .html('Ups... Error !');
+					});
+
+					// Habilitamos el boton nuevamente
+					this.disabled = false;
+
+				});			
+			});
+		
+			// Funcion para resaltar texto
+			var highlight = (function(text) {
+				var content = $('.top-section').html();
+				$('.top-section').html(content.replace(text, "<span class='highlight'>"+text+"</a>"));
+			});
+		</script>
+	</body>
+</html>

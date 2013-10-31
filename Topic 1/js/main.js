@@ -8,7 +8,7 @@
     $tweets = $('.tweets');
     $dim = $('#dimScreen');
 
-    var urlButton = "http://bootcamp.aws.af.cm/welcome/tunombre";
+    var urlButton = "http://bootcamp.aws.af.cm/welcome/";
     var urlAjax = "http://tweetproxy.ap01.aws.af.cm/search";
 
     /** Textarea Fade-in & Focus **/
@@ -20,7 +20,9 @@
     $button.on('click', function () {
         this.disabled = true;
         // Solicitud
-        $.get(url, function (data) {
+        name = $alias.val();
+        console.log(urlButton + name);
+        $.get(urlButton + name, function (data) {
 
             // Quitamos la clase error-text si estuviera
             // e inyectamos el response...						
@@ -42,7 +44,7 @@
         autoOpen: false,
         modal: true,
         width: 600,
-        height: 800,
+        height: 600,
         buttons: {
         },
         close: function () {

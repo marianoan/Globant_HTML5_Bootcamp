@@ -11,9 +11,6 @@
   padding-bottom: 57.25%;
 }
  
-.js-video.vimeo {
-  padding-top: 0;
-}
 
 .js-video embed, .js-video iframe, .js-video object, .js-video video {
   top: 0;

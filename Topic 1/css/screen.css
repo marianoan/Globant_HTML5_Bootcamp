@@ -39,6 +39,7 @@ a {
 }
 
 .tweets {
+    overflow:auto;
     max-height:800px;
 }
 

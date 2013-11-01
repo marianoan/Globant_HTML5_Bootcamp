@@ -3,11 +3,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootcamp HTML5 Topic 2</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css">
-    <style type="text/css">
-        
-    </style>
+    <link rel="stylesheet" href="css/bootstrap3/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap3/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link href="css/video.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -17,10 +16,10 @@
                     <h5>12/10/2013</h5>
                     <h2>Sports Ilustrated</h2>
                 </div>
-                <div class="pull-right">
-                        <img src="img/facebook-icon.png" width="40px" height="40px">
-                        <img src="img/tumblr-icon.png" width="40px" height="40px">
-                        <img src="img/sharethis-icon.png" width="40px" height="40px">
+                <div class="pull-right social_icons">
+                    <img src="img/facebook-icon.png" width="40px">
+                    <img src="img/tumblr-icon.png" width="40px">
+                    <img src="img/sharethis-icon.png" width="40px">
                 </div>
             </div>
         </div>
@@ -49,44 +48,45 @@
             </div><!-- /.navbar-collapse -->
         </nav>
         <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2>News...</h2>
-                        
-                        <p><img src="img/SuperEagles2.jpg" width="60px" style="margin: 10px; float: left;">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                        </p>
-                        <p>
-                            <a class="btn btn-default" href="#" role="button">More info »</a>
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>News...</h2>
+            <div class="row spacer">
+                <div class="col-md-4">
+                    <h3>News...</h3>
 
-                        <p>
-                            <img src="img/SuperEagles2.jpg" width="60px" style="margin: 10px; float: left;">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        </p>
-                        <p>
-                            <a class="btn btn-default" href="#" role="button">More info »</a>
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>News...</h2>
-
-                        <p>
-                            <img src="img/SuperEagles2.jpg" width="60px" style="margin: 10px; float: left;">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        </p>
-                        <p>
-                            <a class="btn btn-default" href="#" role="button">More info »</a>
-                        </p>
-                    </div>
+                    <p>
+                        <img src="img/SuperEagles2.jpg" width="60px" style="margin: 10px; float: left;">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </p>
+                    <p>
+                        <a class="btn btn-default" href="#" role="button">More info »</a>
+                    </p>
                 </div>
-            <div class="row">
+                <div class="col-md-4">
+                    <h3>News...</h3>
+
+                    <p>
+                        <img src="img/SuperEagles2.jpg" width="60px" style="margin: 10px; float: left;">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </p>
+                    <p>
+                        <a class="btn btn-default" href="#" role="button">More info »</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>News...</h3>
+
+                    <p>
+                        <img src="img/SuperEagles2.jpg" width="60px" style="margin: 10px; float: left;">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </p>
+                    <p>
+                        <a class="btn btn-default" href="#" role="button">More info »</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row spacer">
                 <div class="col-md-8">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
@@ -97,32 +97,29 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+                                <img data-src="holder.js/900x290/auto/#777:#7a7a7a/text:First slide" alt="First slide">
                                 <div class="container">
                                     <div class="carousel-caption">
-                                        <h1>Example headline.</h1>
-                                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                                        <h1>Example news headline.</h1>
+                                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Read more..</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
-                                <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+                                <img data-src="holder.js/900x290/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
                                 <div class="container">
                                     <div class="carousel-caption">
-                                        <h1>Another example headline.</h1>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                                        <h1>Example news headline.</h1>
+                                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Read more..</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
-                                <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+                                <img data-src="holder.js/900x290/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
                                 <div class="container">
                                     <div class="carousel-caption">
-                                        <h1>One more for good measure.</h1>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                                        <h1>Example news headline.</h1>
+                                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Read more..</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -132,10 +129,10 @@
                     </div><!-- /.carousel -->
                 </div>
                 <div class="col-md-4">
-                    <h2>Editorial</h2>
+                    <h3>Editorial</h3>
 
                     <p>
-                        <img src="img/SuperEagles2.jpg" width="60px" style="margin: 10px; float: right;">
+                        <img data-src="holder.js/60x100/auto/#555:#ffffff/text:Niembro" alt="Niembro" style="margin: 10px; float: right;">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                     </p>
@@ -144,9 +141,73 @@
                     </p>
                 </div>
             </div>
+
+            <div class="row spacer">
+                <div class="col-md-4">
+                    <img data-src="holder.js/320x330/auto/#555:#ffffff/text:Advertisement" alt="Advertisement">
+                </div>
+                <div class="col-md-4">
+                    <h3>Random video</h3>
+                    <div class="js-video [widescreen]">
+                        <iframe src="http://www.youtube.com/embed/wN3gueLT0D8?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Random video</h3>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Team
+                                </th>
+                                <th>
+                                    Points
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Boca</th>
+                                <td>xx</td>
+                            </tr>
+                            <tr>
+                                <th>River</th>
+                                <td>xx</td>
+                            </tr>
+                            <tr>
+                                <th>Independiente</th>
+                                <td>xx</td>
+                            </tr>
+                            <tr>
+                                <th>Velez</th>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <th>San Lorenzo</th>
+                                <td>xx</td>
+                            </tr>
+                            <tr>
+                                <th>Racing</th>
+                                <td>xx</td>
+                            </tr>
+                            <tr>
+                                <th>San Lorenzo</th>
+                                <td>xx</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="footer" class="newspaperFooter">
+        <div class="container">
+            <h5>TM 2013 Sports Ilustrated.</h5>
         </div>
     </div>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap3/bootstrap.min.js"></script>
+    <script src="js/holder.js"></script>
 </body>
 </html>

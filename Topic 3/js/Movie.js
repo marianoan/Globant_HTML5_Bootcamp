@@ -22,21 +22,12 @@
         },
 
         set: function (key, value) {
-
-            if (key.localeCompare('actors')) {
-                attributes[key] = value;
-            } else {
-                attributes['actors'] = value;
-            }
+            attributes[key] = value;
 
         },
 
         get: function (key) {
-            if (key.localeCompare('actors')) {
-                return attributes[key];
-            } else {
-                return attributes['actors'];
-            }
+            return attributes[key];
         },
     }
 

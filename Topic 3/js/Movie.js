@@ -1,28 +1,24 @@
-﻿var Movie = (function (movieObserver) {
-
+﻿var Movie = (function (Observer) {
     //var movieObserver = new Observer;
-    var attributes = [
-        actors = []
-    ];
+    var attributes = [];
 
-    movieObserver.subscribe(function (title) {
+    Observer.subscribe(function (title) {
         console.log('Playing: ' + title);
     }, 'playing');
 
-    movieObserver.subscribe(function (title) {
+    Observer.subscribe(function (title) {
         console.log('Stoping: ' + title);
     }, 'stoping');
     
 
-    //paper.subscribe(joe.sundayPreNap, 'monthly');
 
     return {
         play: function () {
-            movieObserver.publish([this.get('title')], 'playing');
+            Observer.publish([this.get('title')], 'playing');
         },
 
         stop: function () {
-            movieObserver.publish([this.get('title')], 'stoping');
+            Observer.publish([this.get('title')], 'stoping');
         },
 
         set: function (key, value) {
@@ -30,7 +26,7 @@
             if (key.localeCompare('actors')) {
                 attributes[key] = value;
             } else {
-                attributes[actors] = value;
+                attributes['actors'] = value;
             }
 
         },
@@ -39,11 +35,11 @@
             if (key.localeCompare('actors')) {
                 return attributes[key];
             } else {
-                return attributes[actors];
+                return attributes['actors'];
             }
         },
     }
 
     
 
-});
+}(Observer));

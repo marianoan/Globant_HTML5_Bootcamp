@@ -1,28 +1,19 @@
-﻿var Observer = (function () {
+﻿var Observer = (function ($) {
+    "use strict";
     var subscribers = {
         any: [] // event type: subscribers
     };
     
     return {
         subscribe: function (fn, type) {
-            console.log(type);
-            console.log(subscribers);
+            //console.log(type);
+            //console.log(subscribers);
             type = type || 'any';
             if (!subscribers[type]) {
                 subscribers[type] = [];
             }
             subscribers[type].push(fn);
         },
-        /*
-        subscribe: function (event, callback) {
-            if (typeof callback !== 'function') throw new Error('Callback must be a function');
-
-            if (!cache[event]) {
-                cache[event] = [];
-            }
-
-            cache[event].push(callback);
-        },*/
 
         unsubscribe: function (fn, type) {
             this.visitSubscribers('unsubscribe', fn, type);
@@ -49,4 +40,4 @@
             }
         }
     }
-});
+}($));

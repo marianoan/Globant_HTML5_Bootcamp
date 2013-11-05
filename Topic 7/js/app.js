@@ -79,7 +79,7 @@
 
         addOne: function (movie) {
             var view = new MovieView({ model: movie });
-            $movies_list.append(view.render().el);
+            this.$movies_list.append(view.render().el);
         },
 
         addAll: function () {

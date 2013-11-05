@@ -1,0 +1,85 @@
+﻿    <div class="container">
+        <div class="profile">
+            <div class="header">
+                <div class="image">
+                    <img src="assets/images/defaultThumb.jpg" />
+                </div>
+                <div class="name">
+                    <h1>{firstName} {lastName}</h1>
+                    <h2>{headline}</h2>
+                    <h3>{location.name} | {industry}</h3>
+                </div>
+            </div>
+            <div class="headerContent">
+                <table>
+                    <tbody>
+                        <tr class="alt">
+                            <td>
+                                Positions
+                            </td>
+                        </tr>
+                        {#positions}
+                            {#.}
+                            <tr>
+                                <td>
+                                    {title} at {company.name}
+                                </td>
+                            </tr>
+                            {/.}
+                        {/positions}
+                        
+
+                        <tr class="alt">
+                            <td>
+                                Education
+                            </td>
+                        </tr>
+                        {#educations}
+                        {#.}
+                        <tr>
+                            <td>
+                                {degree} in {fieldOfStudy} at {schoolName}
+                            </td>
+                        </tr>
+                        {/.}
+                        {/educations}
+
+                        <tr class="alt">
+                            <td>
+                                Languages
+                            </td>
+                        </tr>
+                        {#languages}
+                        {#.}
+                        <tr>
+                            <td>
+                                {language.name}
+                            </td>
+                        </tr>
+                        {/.}
+                        {/languages}
+
+                        <tr class="alt">
+                            <td>
+                                Connections : {connections._total}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="summary">
+            <div class="summaryTitle">{firstName} {lastName}'s Summary</div>
+            <div class="summaryContent">
+                <p>
+                    {summary}
+                </p>
+            </div>
+            <h3>Specialties</h3>
+            <div class="summaryContent">
+                <p>
+                    {specialties}
+                </p>
+            </div>
+        </div>
+    </div>

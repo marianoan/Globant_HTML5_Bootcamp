@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<script src="dust.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/screen.css">
+</head>
+
+<body>
+
+<div id="greeting"></div>
+
+<script>
+    dust.onLoad = function (name, callback) {
+        $.ajax("templates/profile.html", {
+            success: function (data) {
+                callback(undefined, data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                callback(textStatus, undefined);
+            }
+        });
+    };
+
+    $.getJSON('profile.txt', function (jsonData) {
+        dust.render("intro", jsonData, function (err, out) {
+            $("#greeting").html(out);
+        });
+        
+    });
+
+    $.getJSON('profile.txt', function (jsonData) {
+        console.log(jsonData);
+
+    });
+
+    
+</script>
+
+</body>
+</html>

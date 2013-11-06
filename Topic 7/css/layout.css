@@ -30,6 +30,38 @@ a:hover {
 text-decoration: underline;
 }
 
+/* Search */
+
+.quick_search {
+text-align: center;
+padding: 14px 0 10px 0;
+}
+
+.quick_search input[type=text] {
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+border: 1px solid #bbb;
+height: 26px;
+width: 90%;
+color: #ccc;
+-webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+-moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+text-indent: 30px;
+background: #fff url(../images/icn_search.png) no-repeat;
+background-position: 10px 6px;
+}
+
+.quick_search input[type=text]:focus {
+outline: none;
+color: #666666;
+border: 1px solid #77BACE;
+-webkit-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
+-moz-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
+box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
+}
+
 
 /* Header */
 
@@ -90,13 +122,13 @@ width: 100%;
 background: #F1F1F4 url(../images/secondary_bar.png) repeat-x;
 }
 
-section#secondary_bar .user {
+section#secondary_bar .movie {
 float: left;
 width: 23%;
 height: 38px;
 }
 
-.user p {
+.movie p {
 margin: 0;
 padding: 0;
 color: #666666;
@@ -108,19 +140,19 @@ height: 35px;
 line-height: 35px;
 text-indent: 25px;
 text-shadow: 0 1px 0 #fff;
-background: url(../images/icn_user.png) no-repeat center left;
+background: url(../images/icn_video.png) no-repeat center left;
 margin-left: 6%;
 }
 
-.user a {
+.movie a {
 text-decoration: none;
 color: #666666}
 
-.user a:hover {
+.movie a:hover {
 color: #77BACE;
 }
 
-.user a.logout_user {
+.movie a.logout_movie {
 float: left;
 display: block;
 width: 16px;
@@ -251,11 +283,11 @@ color: #444444;
 
 /* Sidebar Icons */
 
-#sidebar li.icn_add_user a {
-background: url(../images/icn_add_user.png) no-repeat center left;
+#sidebar li.icn_add_movie a {
+background: url(../images/icn_video.png) no-repeat center left;
 }
-#sidebar li.icn_view_users a {
-background: url(../images/icn_view_users.png) no-repeat center left;
+#sidebar li.icn_view_movies a {
+background: url(../images/icn_categories.png) no-repeat center left;
 }
 
 #sidebar p {

@@ -35,7 +35,7 @@
             
             this.$el.html(this.template(this.model.toJSON()));
 
-            console.log(this.model.toJSON());
+            //console.log(this.model.toJSON());
 
             this.$movie_edit_detail = this.$('.movie_edit_detail');
 

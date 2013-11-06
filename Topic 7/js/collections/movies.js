@@ -3,14 +3,15 @@
   'backbone',
   'localStorage',
   'models/Movie',
-], function (_, Backbone, localStorage,Movie) {
+  'views/MovieView'
+], function (_, Backbone, localStorage, Movie, MovieView) {
 
     var Movies = Backbone.Collection.extend({
         model: Movie,
 
-        localStorage: new localStorage('contact_list_backbone'),
+        localStorage: new localStorage('movie_collectorz'),
 
-        //url: "js/collection.html",
+        //url: "data.json",
 
         nextOrder: function () {
             if (!this.length) {

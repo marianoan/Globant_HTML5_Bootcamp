@@ -34,8 +34,7 @@
             this.$input_new_sinopsis = this.$('#new_sinopsis_input');
             this.$input_new_img = this.$('#new_image_input');
 
-            this.$movies_list.show();
-            this.$new_movie.hide();
+            this.view_movies_list();
 
             this.listenTo(this.collection, 'add', this.addOne);
             this.listenTo(this.collection, 'reset', this.addAll);
@@ -47,6 +46,7 @@
         //Atributos para un nuevo contacto
         newAttributes: function () {
             return {
+                id: this.collection.nextOrder(),
                 name: this.$input_new_name.val().trim(),
                 year: this.$input_new_year.val().trim(),
                 director: this.$input_new_director.val().trim(),
@@ -57,6 +57,8 @@
         },
 
         create_movie: function (event) {
+            //var myJSON = JSON.parse('{"id": 3, "name"  : "The Italian Job", "year": "1969", "director": "Peter Collinson","img" : "http:\/\/ia.media-imdb.com/images/M/MV5BNTI1ODYwNzg3Nl5BMl5BanBnXkFtZTcwMDYzMjk3OA@@._V1_SX214_.jpg","cast" : "Michael Caine, Noel Coward, Benny Hill", "sinopsis" : "Charlies got a Job to do. Having just left prison, he finds one of his friends has attempted a high risk job in Italy right under the nose of the Mafia. Charlies friend doesnt get very far so Charlie takes over the Job. Using three Mini Coopers, a couple of Jaguars and a bus, he hopes to bring Torino to a standstill, steal the Gold and escape."}');
+            //console.log(this.newAttributes());
             this.collection.create(this.newAttributes());
             this.$input_new_name.val('');
             this.$input_new_director.val('');

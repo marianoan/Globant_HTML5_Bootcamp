@@ -1,26 +1,23 @@
-﻿/*var movieApp = angular.module('movieApp', []);
+﻿var movieControllers = angular.module('movieControllers', []);
 
-movieApp.controller('MovieListCtrl', function MovieListCtrl($scope, $http) {
-        $http.get('data.json').success(function(data) {
-            $scope.movies = data;
-        });
+movieControllers.controller('MovieListCtrl', ['$scope', 'Movie', function ($scope, Movie) {
+      $scope.movies = Movie.query();
+      $scope.orderProp = 'name';
 
-    $scope.orderProp = 'name'
-});
-*/
+  }]);
 
-var movieControllers = angular.module('movieControllers', []);
 
-movieControllers.controller('MovieListCtrl', ['$scope', '$http',
-  function MovieListCtrl($scope, $http) {
-      $http.get('data.json').success(function (data) {
-          $scope.movies = data;
+
+
+movieControllers.controller('MovieDetailCtrl', ['$scope', '$routeParams', 'Movie',
+  function ($scope, $routeParams, Movie) {
+
+      $scope.movie = Movie.get({ movieId: $routeParams.movieId }, function (data) {
+          $scope.movie = data;
       });
 
-      $scope.orderProp = 'name';
+      $scope.go = function (path) {
+          $location.path(path);
+      };
   }]);
 
-movieControllers.controller('MovieDetailCtrl', ['$scope', '$routeParams',
-  function ($scope, $routeParams) {
-      $scope.movieId = $routeParams.movieId;
-  }]);

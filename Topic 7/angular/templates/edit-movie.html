@@ -1,0 +1,66 @@
+﻿<header id="header">
+    <hgroup>
+        <h2 class="section_title">Movie Collectorz</h2>
+    </hgroup>
+</header> <!-- end of header bar -->
+
+<section id="secondary_bar">
+    <div class="movie">
+        <p>Editing {{movie.name}}</p>
+    </div>
+</section><!-- end of secondary bar -->
+
+<aside id="sidebar" class="column">
+    <h3>Actions</h3>
+    <ul class="toggle">
+        <li class="icn_view_movies"><a href="#">List Movies</a></li>
+        <li class="icn_add_movie"><a href="#">New Movie</a></li>
+    </ul>
+    <hr />
+</aside><!-- end of sidebar -->
+
+
+<section id="main" class="column">
+
+    
+    <article class="module width_full">
+        <header><h3>{{movie.name}}</h3></header>
+        <div class="module_content">
+            <form>
+                <fieldset>
+                    <label>Name</label>
+                    <input type="text" id="name" value="{{movie.name}}">
+                </fieldset>
+                <fieldset>
+                    <label>Director</label>
+                    <input type="text" id="director" value="{{movie.director}}">
+                </fieldset>
+                <fieldset>
+                    <label>Year</label>
+                    <input type="text" id="year" value="{{movie.year}}">
+                </fieldset>
+                <fieldset>
+                    <label>cast</label>
+                    <input type="text" id="cast" value="{{movie.cast}}">
+                </fieldset>
+                <fieldset>
+                    <label>Sinopsis</label>
+                    <textarea id="sinopsis" rows="10">{{movie.sinopsis}}</textarea>
+                </fieldset>
+                <fieldset>
+                    <label>Image</label>
+                    <input type="text" id="image" value="{{movie.img}}">
+                </fieldset>
+                <div class="clear"></div>
+            </form>
+        </div>
+        <footer>
+            <div class="footer">
+                <input type="submit" value="Save" class="alt_btn" ng-click="savedata()">
+                <input type="submit" value="Reset" id="reset_button">
+            </div>
+        </footer>
+    </article><!-- end of new movie -->
+
+    <div class="spacer"></div>
+</section>

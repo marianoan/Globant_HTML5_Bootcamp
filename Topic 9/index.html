@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <title>HTML5 Bootcamp Topic 9</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Topic 9</h1>
+            <div class="subheader">Mariano Gonzalez</div>
+            <div class="email"><a href="mailto:marianoangonzalez@gmail.com">Send me an email!</a></div>
+        </div>
+
+        <div class="main">
+            <section>
+                <h2 class="displayText">Saving the textarea content</h2>
+            </section>
+
+            <section class="drop" id="drop_zone">
+                <h3 class="displayText" id="status">Drop Zone</h3>
+            </section>
+
+            <section>
+                <textarea id="textAreaLocalStorage">
+
+                </textarea>
+                <textarea id="textAreaIndexed"></textarea>
+            </section>
+
+            <section>
+                <button class="button" id="buttonLocalStorage">
+                    Save in LocalStorage
+                </button>
+                <button class="button" id="buttonIndexed">
+                    Save in IndexedDB
+                </button>
+            </section>
+
+            <section>
+                <button class="button" id="deleteLocalStorage">
+                    Delete LocalStorage
+                </button>
+                <button class="button" id="deleteIndexed">
+                    Delete IndexedDB
+                </button>
+            </section>
+        </div>
+
+        <div class="footer">
+            <div class="innerFooter">Mariano Gonzalez @2013</div>
+        </div>
+    </div>
+    <div id="tweet" class="hidden">
+        <article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <img src="profile_image_url">
+                        </th>
+                        <th>
+                           From: from_user. Created at: created_at
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <p>text</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </div>
+
+</body>
+</html>

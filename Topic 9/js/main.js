@@ -1,4 +1,13 @@
 ﻿var topic9 = {};
+
+var square = {
+    'x': 50,
+    'y': 50,
+    'width': 100,
+    'height': 100,
+    'fill': '#000000'
+};
+
 topic9.indexedDB = {};
 
 topic9.indexedDB.db = null;
@@ -78,6 +87,12 @@ topic9.indexedDB.delete = function () {
     trans.objectStore("textArea").clear();
 };
 
+function getColor() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+
+
+
 $(document).ready(function () {
     $textAreaLocalStorage = $('#textAreaLocalStorage');
     $textAreaIndexed = $('#textAreaIndexed');
@@ -85,7 +100,108 @@ $(document).ready(function () {
     $buttonIndexed = $('#buttonIndexed');
     $deleteLocalStorage = $('#deleteLocalStorage');
     $deleteIndexed = $('#deleteIndexed');
+    $buttonSocket = $('#buttonSocket');
 
+    /*
+    * CANVAS
+    */
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    context.beginPath();
+    context.moveTo(100, 150);
+    context.lineTo(450, 50);
+    context.lineWidth = Math.floor((Math.random() * 10) + 1);
+
+    // set line color
+    context.strokeStyle = getColor();
+    context.stroke();
+
+    var x = canvas.width / 2;
+    var y = canvas.height / 2;
+    var radius = 75;
+    var startAngle = 1.1 * Math.PI;
+    var endAngle = 1.9 * Math.PI;
+    var counterClockwise = false;
+
+    context.beginPath();
+    context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+    context.lineWidth = Math.floor((Math.random() * 15) + 1);;
+
+    // line color
+    context.strokeStyle = getColor();
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(188, 130);
+    context.bezierCurveTo(140, 10, 388, 10, 388, 170);
+    context.lineWidth = Math.floor((Math.random() * 9) + 1);;
+
+    // line color
+    context.strokeStyle = getColor();
+    context.stroke();
+
+    /*
+    * END CANVAS
+    */
+
+
+    /*
+    * CANVAS WITH ANIMATION
+    */
+    var canvasAnimate = document.getElementById('canvasAnimate');
+
+    if (canvasAnimate.getContext) {
+        var contextAnimate = canvasAnimate.getContext('2d');
+
+
+        var requestAnimationFrame =
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            function (callback) {
+                return setTimeout(callback, 1);
+            };
+
+        var render = function () {
+            contextAnimate.clearRect(0, 0, canvas.width, canvas.height);
+            contextAnimate.beginPath();
+            contextAnimate.rect(square.x, square.y, square.width, square.height);
+            contextAnimate.fillStyle = square.fill;
+            contextAnimate.fill();
+            requestAnimationFrame(render);
+        };
+
+        var animate = function (prop, val, duration) {
+            var start = new Date().getTime();
+            var end = start + duration;
+            var current = square[prop];
+            var distance = val - current;
+
+            var step = function () {
+                // Get our current progres
+                var timestamp = new Date().getTime();
+                var progress = Math.min((duration - (end - timestamp)) / duration, 1);
+
+                // Update the square's property
+                square[prop] = current + (distance * progress);
+
+                // If the animation hasn't finished, repeat the step.
+                if (progress < 1) requestAnimationFrame(step);
+            };
+
+            // Start the animation
+            return step();
+        };
+
+        //animate('x', 0, 1000);
+    }
+
+    /*
+    * END CANVAS WITH ANIMATION
+    */
     var holder = document.getElementById('drop_zone'),
     state = document.getElementById('status');
 
@@ -93,26 +209,27 @@ $(document).ready(function () {
         state.className = 'fail';
     } else {
         state.className = 'success';
-        state.innerHTML = 'File API & FileReader available';
+        state.innerHTML = 'Drop your text file here';
     }
 
     holder.ondragover = function () {
-        this.className = 'hover';
+        //this.className = 'hover';
         return false;
     };
     holder.ondragend = function () {
-        this.className = '';
+        //this.className = '';
         return false;
     };
     holder.ondrop = function (e) {
-        this.className = '';
+        //this.className = '';
         e.preventDefault();
 
         var file = e.dataTransfer.files[0],
             reader = new FileReader();
         reader.onload = function (event) {
             console.log(event.target);
-            holder.innerText = event.target.result;
+            $textAreaLocalStorage.val(event.target.result);
+            $textAreaIndexed.val(event.target.result);
         };
         console.log(file);
         reader.readAsText(file);
@@ -146,6 +263,31 @@ $(document).ready(function () {
 
     $deleteIndexed.on('click', function () {
         topic9.indexedDB.delete();
+
+    });
+
+    $buttonSocket.on('click', function () {
+        if ("WebSocket" in window) {
+            // Let us open a web socket
+            var ws = new WebSocket("ws://echo.websocket.org");
+            ws.onopen = function () {
+                // Web Socket is connected, send data using send()
+                ws.send($textAreaLocalStorage.val());
+                alert("The text in the Loal Storage Textarea is sent.");
+            };
+            ws.onmessage = function (evt) {
+                var received_msg = evt.data;
+                alert("Message received: " + received_msg);
+            };
+            ws.onclose = function () {
+                // websocket is closed.
+                alert("Connection is closed...");
+            };
+        }
+        else {
+            // The browser doesn't support WebSocket
+            alert("WebSocket NOT supported by your Browser!");
+        }
 
     });
 

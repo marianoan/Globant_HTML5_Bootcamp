@@ -174,6 +174,8 @@ $(document).ready(function () {
             requestAnimationFrame(render);
         };
 
+        render();
+
         var animate = function (prop, val, duration) {
             var start = new Date().getTime();
             var end = start + duration;
@@ -196,7 +198,7 @@ $(document).ready(function () {
             return step();
         };
 
-        //animate('x', 0, 1000);
+        animate('x', 0, 1000);
     }
 
     /*
